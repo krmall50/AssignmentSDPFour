@@ -55,6 +55,20 @@ public class Main {
         System.out.println("Pressing undo:");
         remoteControl.pressUndo();
 
+        System.out.println("----------------State---------------");
 
+        Order order = new Order();
+        System.out.println("Order process is started");
+        order.payOrder();
+        order.shipOrder();
+        order.deliverOrder();
+        order.cancelOrder();
+        System.out.println("order 2:");
+        Order order2 = new Order();
+        order2.payOrder();
+        order2.cancelOrder();
+        order2.deliverOrder();
+
+        System.out.println("----------------Chain-of-Responsibility---------------");
     }
 }
