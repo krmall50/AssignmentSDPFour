@@ -36,6 +36,24 @@ public class Main {
 
         System.out.println("----------------Command---------------");
 
+        TV tv  = new TV();
+        Stereo stereo = new Stereo();
+        Light light = new Light();
+        Command tvOn = new TurnTVOn(tv);
+        Command setVolumeStereo = new SetVolume(stereo, 10);
+        Command dimLight = new DimLights(light);
+        RemoteControl remoteControl = new RemoteControl();
+        remoteControl.setCommand(1, tvOn);
+        remoteControl.setCommand(2, setVolumeStereo);
+        remoteControl.setCommand(3, dimLight);
+        System.out.println("Pressing TV on button:");
+        remoteControl.pressButton(1);
+        System.out.println("Pressing set volume button:");
+        remoteControl.pressButton(2);
+        System.out.println("Pressing dim lights button:");
+        remoteControl.pressButton(3);
+        System.out.println("Pressing undo:");
+        remoteControl.pressUndo();
 
 
     }
