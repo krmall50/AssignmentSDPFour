@@ -2,10 +2,21 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!");
+        System.out.println("----------------Strategy---------------");
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-        }
+        PaymentStrategy creditCard = new CreditCardPayment();
+        PaymentStrategy paypal = new PayPalPayment();
+        PaymentStrategy crypto = new CryptoPayment();
+        ShoppingCart cart = new ShoppingCart(creditCard);
+        cart.checkout(150000);
+        cart.setPaymentStrategy(paypal);
+        cart.checkout(20000);
+        cart.setPaymentStrategy(crypto);
+        cart.checkout(128);
+
+        System.out.println("----------------Observer---------------");
+
+
+
     }
 }
