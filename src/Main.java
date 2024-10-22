@@ -70,5 +70,16 @@ public class Main {
         order2.deliverOrder();
 
         System.out.println("----------------Chain-of-Responsibility---------------");
+
+        ApprovalChain approvalChain = new ApprovalChain();
+        ExpenseRequest request1 = new ExpenseRequest(200, "Order pizza");
+        ExpenseRequest request2 = new ExpenseRequest(4000, "Hang out");
+        ExpenseRequest request3 = new ExpenseRequest(8000, "New setup");
+        ExpenseRequest request4 = new ExpenseRequest(16000, "Servers");
+        System.out.println("Processing requests");
+        approvalChain.processRequest(request1);
+        approvalChain.processRequest(request2);
+        approvalChain.processRequest(request3);
+        approvalChain.processRequest(request4);
     }
 }
