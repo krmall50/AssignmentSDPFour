@@ -92,5 +92,23 @@ public class Main {
 
         user1.send("Some message");
         user2.send("Some premium message");
+
+        System.out.println("----------------Memento---------------");
+
+        Document doc = new Document();
+        VersionControl VC = new VersionControl();
+
+        doc.setContent("Some content");
+        VC.saveVersion(doc.save());
+        doc.setContent("Some content 3");
+        VC.saveVersion(doc.save());
+        doc.setContent("Some content 6");
+        VC.saveVersion(doc.save());
+        doc.setContent("Some content 12");
+        VC.saveVersion(doc.save());
+        VC.listVersions();
+        System.out.println("Restoring version 2: ");
+        doc.restore(VC.getVersion(1));
+        System.out.println("Current: " + doc.getContent());
     }
 }
