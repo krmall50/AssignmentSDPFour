@@ -81,5 +81,16 @@ public class Main {
         approvalChain.processRequest(request2);
         approvalChain.processRequest(request3);
         approvalChain.processRequest(request4);
+
+        System.out.println("----------------Mediator---------------");
+
+        ChatMediator room = new ChatRoom();
+
+        User user1 = new RegularUser(room, "user1");
+        User user2 = new PremiumUser(room, "USER2");
+        User user3 = new RegularUser(room, "user3");
+
+        user1.send("Some message");
+        user2.send("Some premium message");
     }
 }
