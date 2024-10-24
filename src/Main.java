@@ -122,5 +122,23 @@ public class Main {
         drawing.addShape(triangle);
         AreaCalculator areaCalculator = new AreaCalculator();
         drawing.calculateAreas(areaCalculator);
+
+        System.out.println("----------------Template---------------");
+
+        ReportGenerator pdf = new PDFReportGenerator();
+        ReportGenerator html = new HTMLReportGenerator();
+        ReportGenerator text = new PlainTextReportGenerator();
+        ReportingSystem system = new ReportingSystem(pdf);
+        System.out.println("PDF report:");
+        system.generateReport();
+
+        system = new ReportingSystem(html);
+        System.out.println("HTML report:");
+        system.generateReport();
+
+        system = new ReportingSystem(text);
+        System.out.println("Plain text report:");
+        system.generateReport();
+
     }
 }
