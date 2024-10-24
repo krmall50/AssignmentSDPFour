@@ -140,5 +140,31 @@ public class Main {
         System.out.println("Plain text report:");
         system.generateReport();
 
+        System.out.println("----------------Iterator---------------");
+
+        Playlist playlist = new Playlist();
+        playlist.addSong(new Song("song1", "artist1", "genre1"));
+        playlist.addSong(new Song("song2", "artist2", "genre2"));
+        playlist.addSong(new Song("song3", "artist3", "genre3"));
+        playlist.addSong(new Song("song4", "artist4", "genre2"));
+
+        System.out.println("Sequential Order:");
+        Iterator sequentialIterator = playlist.getSequentialIterator();
+        while (sequentialIterator.hasNext()) {
+            System.out.println(sequentialIterator.next());
+        }
+        System.out.println();
+        System.out.println("Shuffle Order:");
+        Iterator shuffleIterator = playlist.getShuffleIterator();
+        while (shuffleIterator.hasNext()) {
+            System.out.println(shuffleIterator.next());
+        }
+        System.out.println();
+        System.out.println("genre2:");
+        Iterator genreFilterIterator = playlist.getGenreFilterIterator("genre2");
+        while (genreFilterIterator.hasNext()) {
+            System.out.println(genreFilterIterator.next());
+        }
+
     }
 }
