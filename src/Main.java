@@ -110,5 +110,17 @@ public class Main {
         System.out.println("Restoring version 2: ");
         doc.restore(VC.getVersion(1));
         System.out.println("Current: " + doc.getContent());
+
+        System.out.println("----------------Visitor---------------");
+
+        Shape circle = new Circle(2);
+        Shape rect = new Rectangle(4, 8);
+        Shape triangle = new Triangle(8, 16);
+        Drawing drawing = new Drawing();
+        drawing.addShape(circle);
+        drawing.addShape(rect);
+        drawing.addShape(triangle);
+        AreaCalculator areaCalculator = new AreaCalculator();
+        drawing.calculateAreas(areaCalculator);
     }
 }
